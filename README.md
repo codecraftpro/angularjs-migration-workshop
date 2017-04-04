@@ -51,3 +51,20 @@ The application is a simple contacts application where you can search, create or
 ### Step 3 - AngularJS 1.5+
 
 - Upgrade "angular", "angular-animate" and "angular-resource" to the latest 1.x version of angualr (1.6.2 in this example)
+
+### Step 4
+
+*Controllers => Components*
+- Rename folder `controllers` to `components`
+- Rename `*.controller.ts` to `*.component.ts`
+- Change all controllers to be components using a component definition object
+    - Remove relevant template files and inline in component
+    - Components use controller as syntax by default so in template remember to now use `$ctrl`
+    - Note: selector in component will be converted to snake case when used in template, so `personList` will be used as `person-list`
+    - Change `templates/form.html` this is used in edit and create components and now needs to use `$ctrl`
+
+*Directives => Components*
+- Move the `card.directive` and `spinner.directive` to the component folder and rename to components
+- Convert both of these to components as well
+    
+- Changed `app.routes.ts` to use components as HTML tags i.e. `template: '<person-list></person-list>'`    
